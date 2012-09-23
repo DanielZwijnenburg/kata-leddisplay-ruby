@@ -30,6 +30,42 @@ class LedDisplayTest < Test::Unit::TestCase
 		assert_equal " _ \n _|\n _|", @result
 	end
 
+	def test_should_convert_four
+		@d = LedDisplay.new
+		@result = @d.convert 4
+		assert_equal "   \n|_|\n  |", @result
+	end
+
+	def test_should_convert_five
+		@d = LedDisplay.new
+		@result = @d.convert 5
+		assert_equal " _ \n|_ \n _|", @result
+	end
+	
+	def test_should_convert_six
+		@d = LedDisplay.new
+		@result = @d.convert 6
+		assert_equal " _ \n|_ \n|_|", @result
+	end
+
+	def test_should_convert_seven
+		@d = LedDisplay.new
+		@result = @d.convert 7
+		assert_equal " _ \n  |\n  |", @result
+	end
+
+	def test_should_convert_eight
+		@d = LedDisplay.new
+		@result = @d.convert 8
+		assert_equal " _ \n|_|\n|_|", @result
+	end
+
+	def test_should_convert_nine
+		@d = LedDisplay.new
+		@result = @d.convert 9
+		assert_equal " _ \n|_|\n _|", @result
+	end
+
 	def test_should_convert_two_digit_number
 		@d = LedDisplay.new
 		@result = @d.convert 11
