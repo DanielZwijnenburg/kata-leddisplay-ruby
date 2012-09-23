@@ -68,8 +68,19 @@ class LedDisplayTest < Test::Unit::TestCase
 
 	def test_should_convert_two_digit_number
 		@d = LedDisplay.new
-		@result = @d.convert 11
-		assert_equal "       \n  |   |\n  |   |", @result
+		@result = @d.convert 12
+		assert_equal "     _ \n  |  _|\n  | |_ ", @result
 	end
 
+	def test_should_convert_three_digit_number
+		@d = LedDisplay.new
+		@result = @d.convert 345
+		assert_equal " _       _ \n _| |_| |_ \n _|   |  _|", @result
+	end
+
+	def test_should_convert_five_digit_number
+		@d = LedDisplay.new
+		@result = @d.convert 67890
+		assert_equal " _   _   _   _   _ \n|_    | |_| |_| | |\n|_|   | |_|  _| |_|", @result
+	end
 end
