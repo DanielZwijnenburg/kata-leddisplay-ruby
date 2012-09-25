@@ -1,50 +1,46 @@
-class LedDisplay 
+class LedDisplay
 
-	def initialize
-		@numbers = [
-			[" _ ", 
-			 "| |", 
-			 "|_|"], 
-			["   ", 
-			 "  |",
-			 "  |"], 
-			[" _ ", 
-			 " _|", 
-			 "|_ "], 
-			[" _ ",
-			 " _|",
-			 " _|"], 
-			["   ",
-			 "|_|",
-			 "  |"], 
-			[" _ ",
-			 "|_ ",
-			 " _|"], 
-			[" _ ",
-			 "|_ ",
-			 "|_|"], 
-			[" _ ",
-			 "  |",
-			 "  |"], 
-			[" _ ",
-			 "|_|",
-			 "|_|"], 
-			[" _ ",
-			 "|_|",
-			 " _|"]]
-	end
+	Numbers = [
+		[" _ ", 
+		 "| |", 
+		 "|_|"], 
+		["   ", 
+		 "  |",
+		 "  |"], 
+		[" _ ", 
+		 " _|", 
+		 "|_ "], 
+		[" _ ",
+		 " _|",
+		 " _|"], 
+		["   ",
+		 "|_|",
+		 "  |"], 
+		[" _ ",
+		 "|_ ",
+		 " _|"], 
+		[" _ ",
+		 "|_ ",
+		 "|_|"], 
+		[" _ ",
+		 "  |",
+		 "  |"], 
+		[" _ ",
+		 "|_|",
+		 "|_|"], 
+		[" _ ",
+		 "|_|",
+		 " _|"]]
 
 	def convert(number)
 		result = []
-		(0..2).each do |lineNr|
-			digits = number.to_s.split('').map { |digit| digit.to_i }
-			line = []
-			digits.each do |digit|
-				line << @numbers[digit][lineNr]
-			end
+
+		3.times do |lineNr|
+			digits = number.to_s.chars.inject([]) { |array, digit| array << digit.to_i }
+			line = digits.inject([]) { |array, digit| array << Numbers[digit][lineNr] }
 			result << line.join(" ")
 		end
-		return result.join("\n")
-	end
 
+		result.join("\n")
+	end
 end
